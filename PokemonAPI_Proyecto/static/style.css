@@ -1,0 +1,178 @@
+/* Estilos generales para la pagina principal */
+*{
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+/* Estilos para el encabezado de la pagina principal */
+header h1{
+    font-size: 70px;
+    font-weight: bold;
+    color:white;
+    text-align: center;
+}
+
+header{
+    background-color: #e01111;
+    padding: 50px 50px;
+}
+
+/* Estilos para la barra de navegacion en la pagina*/
+nav{
+    background-color: #ff1616;
+    padding: 25px 25px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    
+}
+
+nav ul{
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li{
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    width: 25%;
+    display: inline-block;
+    margin: 10px;
+}
+
+nav ul li:hover{
+    padding: 15px 25px;
+    cursor: pointer;
+    background-color: green;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    font-weight: bold;
+    box-shadow: 0 0 10px green;
+}
+
+/* Estilos para el contenedor la pagina principal */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+main ul li h3{
+    padding: 10px 10px;
+}
+
+
+h2 {
+    font-size: 70px;
+    font-weight: bold;
+    color:black;
+    text-align: center;
+}
+
+/* Estilos para los formularios de la pagina principal */
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button[type="submit"] {
+    background-color: #e01111;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+    background-color: #ff1616;
+}
+
+/* Estilos para el enlace de registro */
+p {
+    text-align: center;
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para las tarjetas de Pokémon */
+.pokemon-card {
+    border: 2px solid #000000;
+    padding: 20px 10px;
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 0 10px black;
+    width: 17.26%;
+    
+}
+
+/* Estilo para el botón "Ver Pokemon" */
+.ver-pokemon-btn {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.ver-pokemon-btn:hover {
+    background-color: black;
+}
+
+/* Estilos para la img de la pokebola de la pagina principal */
+.pokemon-card img {
+    max-width: 100px; 
+    max-height: 100px; 
+}
+
+/* Estilos para el pie de pagina de la pagina principal */
+footer{
+    background-color:#e0e0e0;
+    padding: 50px 50px;
+    color:black;
+
+}
+
+footer p{
+    font-weight: bold;
+    font-size: 20px;
+}

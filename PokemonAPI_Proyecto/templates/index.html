@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+{% load static %} <!--Corresponde a la carga de archivos static en la pagina-->
+
+<html lang="en"> <!--Corresponde al lenguaje (ingles)-->
+
+<head>
+    <meta charset="UTF-8"> <!--Corresponde a los caracteres especiales-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Corresponde al rrsponsive de la pagina  escala al 1-->
+    <title>Iniciar Sesión</title> <!--El titulo-->
+    <link rel="stylesheet" href="{% static 'style.css' %}"><!--Corresponde a la ubicacion de los estilos en CSS-->
+    <meta name = "despcription" content="Esta es la pagina principal"> <!--Corresponde a  la descripcion de la pagina-->
+    <meta name="keywords" content="pokemon, juegos, caricaturas, monstruos"><!--Corresponde a identificacion en busqueda con palabras especiales-->
+    <meta name="author" content="Jose Manuel Murillo Sánchez"><!--Corresponde al creador de la pagina web-->
+</head>
+
+<body>
+
+    <!--  *********************************************************** -->
+    <!--  *  Corresponde al encabezado de la pagina                 * -->
+    <!--  *********************************************************** -->
+    <header>
+        <h1>API Pokémon</h1>
+    </header>
+
+
+
+    <!--  *********************************************************** -->
+    <!--  *  Corresponde a la barra de navegacion de la pagina      * -->
+    <!--  *********************************************************** -->
+    <nav>
+
+        <!-- Creacion de lista no ordenada -->
+        <ul>
+
+            <!-- Verifica que el ususario este autenficado -->
+            {% if user.is_authenticated %}
+
+                <!-- Si el usuario esta autenticado, muestra solo el boton de Cerrar Sesion -->
+                <li><a href="{% url 'cerrar_sesion' %}">Cerrar Sesión</a></li>
+
+                <!-- Metodo para cerrar sesión -->
+                <form action="{% url 'cerrar_sesion' %}" method="post" id="logout-form">
+
+                    <!-- protege tus formularios contra ataques maliciosos. -->
+                    {% csrf_token %}
+                </form>
+
+            
+            <!-- Si el usuario no está autenticado: -->
+            {% else %}
+                <!-- Muestra los botones de Iniciar Sesion y Registrarse -->
+                <li><a href="{% url 'registro_usuario' %}">Registrarse</a></li>
+                <li><a href="{% url 'inicio_sesion' %}">Iniciar Sesión</a></li>
+            {% endif %}
+
+
+        </ul>
+    </nav>
+
+
+
+    <!--  *********************************************************** -->
+    <!--  *  Corresponde al menu de la pagina principal             * -->
+    <!--  *********************************************************** -->
+    <main>
+
+
+        <br><br>
+        <h2>Escoge un Pokémon para visualizar</h2>
+        <br>
+
+
+        <!-- Creacion de lista con las cartas con los pokemones a ver -->
+        <ul class="pokemon-list">
+
+            <!-- Crea un ciclo que recorre la lista de los pokemones obtenidos de la API -->
+            {% for resultado in resultados %}
+
+                <!-- Crecion de las cartas con los pokemones -->
+                <li class="pokemon-card">
+
+                    <!-- Carga la imagen de la pokebola en cada carta -->
+                    <img src="{% static 'img/pokebola.png' %}" alt="Pokebola">
+
+                    <!-- Obtiene el nombre de cada pokemon y lo coloca en cada carta-->
+                    <h3>{{ resultado.name }}</h3>
+
+                    <!-- Abajo de cada carta aparece un boton el cual llevara a una pagina para visualizar el pokemon seleccionado -->
+                    <a href="{% url 'visualizar_pokemon' resultado.name %}" class="ver-pokemon-btn">Ver Pokémon</a>
+                </li>
+            <!-- Finaliza el ciclo -->
+            {% endfor %}
+
+        </ul> 
+
+    </main>
+
+
+
+    <!--  *********************************************************** -->
+    <!--  *  Corresponde al pie de pagina de esta pagina principal  * -->
+    <!--  *********************************************************** -->
+    <footer>
+        <p>&copy; {{ year }} Jose Manuel Murillo Sánchez. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

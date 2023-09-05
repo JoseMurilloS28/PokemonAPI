@@ -1,0 +1,111 @@
+/* Estilos generales para la pagina de visualizar pokemones*/
+* {
+    font-family: Arial, sans-serif;
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: none;
+}
+
+/* Estilos del encabezado */
+header {
+    background-color: #e01111;
+    padding: 50px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Estilos de la seccion principal */
+main {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pokemon-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.pokemon-details h2 {
+    font-size: 70px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.pokemon-details img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pokemon-details h3 {
+    padding: 10px 10px;
+}
+
+.pokemon-details ul {
+    list-style: none;
+}
+
+.pokemon-details ul li {
+    font-weight: bold;
+}
+
+/* Estilos del botón "Ver Mas" */
+.btn-salir ul {
+    list-style: none;
+    text-align: center;
+}
+
+.btn-salir ul li {
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    width: 25%;
+    display: inline-block;
+    margin: 10px;
+}
+
+.btn-salir ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+.btn-salir ul li:hover {
+    padding: 15px 25px;
+    cursor: pointer;
+    background-color: green;
+    font-weight: bold;
+}
+
+.btn-salir ul li a:hover {
+    font-weight: bold;
+    box-shadow: 0 0 10px green;
+}
+
+/* Estilos del pie de pagina */
+footer {
+    background-color: #e0e0e0;
+    padding: 100px;
+    color: black;
+}
+
+footer p {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+{% load static %} <!--Corresponde a la carga de archivos static en la pagina-->
+
+<html lang="en"> <!--Corresponde al lenguaje (ingles)-->
+
+<head>
+    <meta charset="UTF-8"> <!--Corresponde a los caracteres especiales-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Corresponde al rrsponsive de la pagina  escala al 1-->
+    <title>Registrarse</title> <!--El titulo-->
+    <link rel="stylesheet" href="{% static 'u_registro.css' %}"><!--Corresponde a la ubicacion de los estilos en CSS-->
+    <meta name = "despcription" content="Este es la pagina de registro de usuario"> <!--Corresponde a  la descripcion de la pagina-->
+    <meta name="keywords" content="pokemon, juegos, caricaturas, monstruos, registrarse"><!--Corresponde a identificacion en busqueda con palabras especiales-->
+    <meta name="author" content="Jose Manuel Murillo Sánchez"><!--Corresponde al creador de la pagina web-->
+</head>
+
+<body>
+
+    <!--  *********************************************************** -->
+    <!--  *  Corresponde al encabezado de la pagina                 * -->
+    <!--  *********************************************************** -->
+    <div class="header">
+    </div>
+
+
+
+    <!--  *********************************************************** -->
+    <!--  *  Corresponde al contenedor de la pagina                 * -->
+    <!--  *********************************************************** -->
+    <div class="container">
+        <h2>Registro</h2>
+        
+
+
+        <!--  *********************************************************** -->
+        <!--  *  Corresponde al formulario dentro del contenedor        * -->
+        <!--  *********************************************************** -->
+
+        <!-- El formulario tiene una solicitud de tipo POST -->
+        <form method="post">
+
+            <!-- protege tus formularios contra ataques maliciosos. -->
+            {% csrf_token %}
+            
+            <!-- Renderiza el formulario en formato de parrafos en Django (Muestra los campos a llenar en el registro). -->
+            {{ form.as_p }}
+
+            <!-- Boton para enviar formulario (registrarse). -->
+            <button type="submit">Registrarse</button>
+        </form>
+        
+
+        <!-- Enlace que redirige a los usuarios que ya tienen cuenta a otro formulario de inicio de sesion. -->
+        <p>¿Ya tienes una cuenta? <a href="{% url 'inicio_sesion' %}">Inicia sesión aquí</a></p>
+    </div>
+
+
+    <!--  ************************************************************** -->
+    <!--  *  Corresponde al pie de pagina de la pagina                 * -->
+    <!--  ************************************************************** -->
+    <div class="footer">
+    </div>
+
+</body>
+</html>

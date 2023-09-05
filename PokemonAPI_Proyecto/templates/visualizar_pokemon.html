@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+{% load static %} <!--Corresponde a la carga de archivos static en la pagina-->
+
+<html lang="en"> <!--Corresponde al lenguaje (ingles)-->
+
+<head>
+    <meta charset="UTF-8"> <!--Corresponde a los caracteres especiales-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Corresponde al rrsponsive de la pagina  escala al 1-->
+    <title>Visualizar Pokémon</title> <!--El titulo-->
+    <link rel="stylesheet" href="{% static 'vzl_pokemon.css' %}"><!--Corresponde a la ubicacion de los estilos en CSS-->
+    <meta name = "despcription" content="Este es la pagina de visualizar pokemones"> <!--Corresponde a  la descripcion de la pagina-->
+    <meta name="keywords" content="pokemon, juegos, caricaturas, monstruos, ver pokemon"><!--Corresponde a identificacion en busqueda con palabras especiales-->
+    <meta name="author" content="Jose Manuel Murillo Sánchez"><!--Corresponde al creador de la pagina web-->
+</head>
+
+
+<body>
+
+    <!--  *********************************************************** -->
+    <!--  *  Corresponde al encabezado de la pagina                 * -->
+    <!--  *********************************************************** -->
+    <header>
+        <h1>Detalles del Pokémon</h1>
+    </header>
+
+
+
+    <!--  *********************************************************** -->
+    <!--  *  Corresponde al conteindo de la pagina                  * -->
+    <!--  *********************************************************** -->
+    <main>
+
+        <!-- Corresponde al contenido de los detalles del pokemon -->
+        <div class="pokemon-details">
+
+            <!-- Verifica si el pokemon existe. -->
+            {% if pokemon %}
+
+                <!-- Si el pokemon existe entonces obtiene el nombre. -->
+                <h2>{{ pokemon.name|title }}</h2>
+
+                <!-- Aplica la imagen la imagen almacenada en la API del pokemon. -->
+                <img src="{{ pokemon.sprites.front_default }}" alt="{{ pokemon.name }}">
+
+                <!-- Muestra las habilidades del pokemon. -->
+                <h3>Habilidades:</h3>
+
+
+                <ul>
+
+                    <!-- Busca las habilidades en la lista de hablidades. -->
+                    {% for ability in pokemon.abilities %}
+
+                        <!-- Muestra las habilidades del pokemon seleccionado. -->
+                        <li>{{ ability.ability.name }}</li>
+
+                    {% endfor %}
+
+                </ul>
+
+
+            <!-- Si el pokemon NO existe: -->
+            {% else %}
+
+                <!-- Mostrara un mensaje de error. -->
+                <p class="error-message">{{ error_message }}</p>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Determina un boton para salir. -->
+        <div class="btn-salir">
+
+            
+            <ul>
+                <!-- El boton de salir llevara a la pagina principal. -->
+                <li><a href="{% url 'pagina_principal' %}">Ver Más Pokemones</a></li>
+            </ul>
+
+        </div>
+    </main>
+
+
+
+    <!--  *********************************************************** -->
+    <!--  *  Corresponde al pie de pagina de  visualizar pokémon    * -->
+    <!--  *********************************************************** -->
+    <footer>
+        <p>&copy; {{ year }} Jose Manuel Murillo Sánchez. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
